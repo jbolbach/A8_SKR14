@@ -482,7 +482,7 @@
 
 // Comment the following line to disable PID and enable bang-bang.
 #define PIDTEMP
-#define BANG_MAX 128     // Limits current to nozzle while in bang-bang mode; 255=full current
+#define BANG_MAX 255     // Limits current to nozzle while in bang-bang mode; 255=full current
 #define PID_MAX BANG_MAX // Limits current to nozzle while PID is active (see PID_FUNCTIONAL_RANGE below); 255=full current
 #define PID_K1 0.95      // Smoothing factor within any PID loop
 
@@ -495,13 +495,13 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify between 1 and HOTENDS values per array.
     // If fewer than EXTRUDER values are provided, the last element will be repeated.
-    #define DEFAULT_Kp_LIST {  24.35,  22.20 }
-    #define DEFAULT_Ki_LIST {   1.79,   1.08 }
-    #define DEFAULT_Kd_LIST {  83.00, 114.00 }
+    #define DEFAULT_Kp_LIST {  26.32,  22.20 }
+    #define DEFAULT_Ki_LIST {   1.93,   1.08 }
+    #define DEFAULT_Kd_LIST {  89.63, 114.00 }
   #else
-   #define DEFAULT_Kp 24.35
-   #define DEFAULT_Ki 1.79
-   #define DEFAULT_Kd 83.00
+   #define DEFAULT_Kp 26.32
+   #define DEFAULT_Ki 1.93
+   #define DEFAULT_Kd 89.63
   #endif
 #endif // PIDTEMP
 
