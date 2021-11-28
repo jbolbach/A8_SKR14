@@ -737,12 +737,12 @@
  * Z Steppers Auto-Alignment
  * Add the G34 command to align multiple Z steppers using a bed probe.
  */
-//#define Z_STEPPER_AUTO_ALIGN
+#define Z_STEPPER_AUTO_ALIGN
 #if ENABLED(Z_STEPPER_AUTO_ALIGN)
   // Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
   // If not defined, probe limits will be used.
   // Override with 'M422 S<index> X<pos> Y<pos>'
-  //#define Z_STEPPER_ALIGN_XY { {  10, 190 }, { 100,  10 }, { 190, 190 } }
+  #define Z_STEPPER_ALIGN_XY { {  35, 145 }, { 225,  145 } }
 
   /**
    * Orientation for the automatically-calculated probe positions.
@@ -774,7 +774,7 @@
     // Define Stepper XY positions for Z1, Z2, Z3 corresponding to
     // the Z screw positions in the bed carriage.
     // Define one position per Z stepper in stepper driver order.
-    #define Z_STEPPER_ALIGN_STEPPER_XY { { 210.7, 102.5 }, { 152.6, 220.0 }, { 94.5, 102.5 } }
+    #define Z_STEPPER_ALIGN_STEPPER_XY { { -25, 145 }, { 152.6, 220.0 }, { 94.5, 102.5 } }
   #else
     // Amplification factor. Used to scale the correction step up or down in case
     // the stepper (spindle) position is farther out than the test point.
@@ -784,7 +784,7 @@
   // On a 300mm bed a 5% grade would give a misalignment of ~1.5cm
   #define G34_MAX_GRADE              5    // (%) Maximum incline that G34 will handle
   #define Z_STEPPER_ALIGN_ITERATIONS 5    // Number of iterations to apply during alignment
-  #define Z_STEPPER_ALIGN_ACC        0.02 // Stop iterating early if the accuracy is better than this
+  #define Z_STEPPER_ALIGN_ACC        0.01 // Stop iterating early if the accuracy is better than this
   #define RESTORE_LEVELING_AFTER_G34      // Restore leveling after G34 is done?
   // After G34, re-home Z (G28 Z) or just calculate it from the last probe heights?
   // Re-homing might be more precise in reproducing the actual 'G28 Z' homing height, especially on an uneven bed.
@@ -794,11 +794,11 @@
 //
 // Add the G35 command to read bed corners to help adjust screws. Requires a bed probe.
 //
-//#define ASSISTED_TRAMMING
+#define ASSISTED_TRAMMING
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define positions for probing points, use the hotend as reference not the sensor.
-  #define TRAMMING_POINT_XY { {  20, 20 }, { 200,  20 }, { 200, 200 }, { 20, 200 } }
+  #define TRAMMING_POINT_XY { {  40, 10 }, { 260,  10 }, { 260, 290 }, { 40, 290 } }
 
   // Define positions names for probing points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
@@ -816,7 +816,7 @@
    *   M4: 40 = Clockwise, 41 = Counter-Clockwise
    *   M5: 50 = Clockwise, 51 = Counter-Clockwise
    */
-  #define TRAMMING_SCREW_THREAD 30
+  #define TRAMMING_SCREW_THREAD 40
 
 #endif
 
@@ -1655,7 +1655,7 @@
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
   #define LIN_ADVANCE_K 0.22    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
-  //#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
+  #define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
 
 // @section leveling
